@@ -1,6 +1,15 @@
 @extends('layouts.app')
 @section('title', '商品登録')
 @section('content')
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     {{ Form::open(['route'=>'items.store']) }}
     <div class="form-group">
         {{ Form::label('name', '商品名：') }}
